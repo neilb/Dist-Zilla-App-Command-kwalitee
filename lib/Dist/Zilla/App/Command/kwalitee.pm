@@ -12,17 +12,17 @@ sub opt_spec {
 
     [
         'core|c', 'core kwalitee tests only',
-        { default => 'default' }
+        { default => 0 }
     ],
 
     [
         'experimental|e', 'include experimental metrics',
-        { default => 'default' }
+        { default => 0 },
     ],
 
     [
         'verbose|v', 'request verbose output',
-        { default => 'default' }
+        { default => 0 }
     ],
 
 }
@@ -34,7 +34,7 @@ sub execute {
     App::CPANTS::Lint->VERSION('0.03');
 
     my $tgz = $self->zilla->build_archive;
-    my $linter = App::CPANTS::Lint->new();
+    my $linter = App::CPANTS::Lint->new(experimental => $opt->experimental);
     $linter->lint($tgz);
     $linter->output_report;
 }
