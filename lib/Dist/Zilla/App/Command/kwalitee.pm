@@ -5,7 +5,6 @@ use strict;
 use warnings;
 
 use Dist::Zilla::App -command;
-use App::CPANTS::Lint 0.03;
 
 sub abstract { 'run CPANTS kwalitee check on your dist' }
 
@@ -30,6 +29,9 @@ sub opt_spec {
 
 sub execute {
     my ($self, $opt, $arg) = @_;
+
+    require App::CPANTS::Lint;
+    App::CPANTS::Lint->VERSION('0.03');
 
     my $tgz = $self->zilla->build_archive;
     my $linter = App::CPANTS::Lint->new();
