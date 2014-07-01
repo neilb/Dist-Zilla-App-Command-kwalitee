@@ -74,6 +74,9 @@ It is the core of the L<cpants_lint.pl> script.
 L<Module::CPANTS::Analyse> is the module behind L<App::CPANTS::Lint>,
 which actually does the analysis.
 
+L<Dist::Zilla::Plugin::Test::Kwalitee> is a plugin that generates a
+release test using L<Test::Kwalitee>.
+
 L<CPANTS|http://cpants.cpanauthors.org> is the website where you
 can see the Kwalitee score for all distributions on CPAN.
 As a CPAN author you can see a dashboard for all your dists.
